@@ -71,5 +71,3 @@ with user_container:
                             message(st.session_state['messages'][i], is_user=True, key=str(i) + '_user')
                         else:
                             message(st.session_state['messages'][i], key=str(i) + '_AI')                
-        else:
-            st.error('Please provide your API key in the sidebar')
