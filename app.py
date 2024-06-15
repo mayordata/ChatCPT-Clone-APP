@@ -64,10 +64,12 @@ with user_container:
             model_response = get_response(user_input,  st.session_state['API_KEY'])
             st.session_state['messages'].append(model_response)
 
-
             with response_container:
                 for i in range(len(st.session_state['messages'])):
                         if (i % 2) == 0:
                             message(st.session_state['messages'][i], is_user=True, key=str(i) + '_user')
                         else:
-                            message(st.session_state['messages'][i], key=str(i) + '_AI')                
+                            message(st.session_state['messages'][i], key=str(i) + '_AI')
+
+        if st.session_state['API_KEY'] == '':
+            st.error("Provide your API Key in the side bar")
